@@ -15,7 +15,6 @@ class FilmService {
     fun list ():List<Film>{
         return filmRepository.findAll()
     }
-
     fun save (film:Film): Film{
         try{
             film.title?.takeIf { it.trim().isNotEmpty() }

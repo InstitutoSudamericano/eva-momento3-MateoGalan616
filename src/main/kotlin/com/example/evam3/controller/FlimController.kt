@@ -8,8 +8,9 @@ import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 
 @RestController
+@CrossOrigin(methods = [RequestMethod.GET, RequestMethod.POST, RequestMethod.PATCH, RequestMethod.PUT, RequestMethod.DELETE])
 @RequestMapping("/film")
-class FilmController {
+class FlimController {
     @Autowired
     lateinit var filmService: FilmService
 
@@ -22,5 +23,4 @@ class FilmController {
     fun save (@RequestBody film: Film): ResponseEntity<*> {
         return ResponseEntity<Film>(filmService.save(film), HttpStatus.CREATED)
     }
-
 }
